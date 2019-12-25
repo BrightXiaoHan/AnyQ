@@ -111,11 +111,17 @@ int TermRetrievalPlugin::make_fetch_q(const AnalysisResult& analysis_result, int
 }
 
 // 检索solr
-int TermRetrievalPlugin::solr_request(const char* q, std::string* buffer)
+int TermRetrievalPlugin::solr_request(const char* q, std::string* buffer, const AnalysisResult& analysis_result)
 {
     char url[URL_LENGTH];
+    std::string collection;
+    if (analysis_result.info.count("collection") > 0){
+        collection = analysis_result.info.find("collection")->second;
+    }else{
+        collection = _engine_name;
+    }
     snprintf(url, URL_LENGTH, "http://%s:%d/solr/%s/select", _search_host.c_str(),
-            _search_port, _engine_name.c_str());
+            _search_port, collection.c_str());
     DEBUG_LOG("url = %s", url);
 
     std::map<std::string, std::string> para_map;
@@ -201,7 +207,7 @@ int TermRetrievalPlugin::retrieval(const AnalysisResult& analysis_result, Retrie
 
         std::string solr_result_buffer = "";
         // 向solr检索服务发请求
-        if (solr_request(solr_fetch_q.c_str(), &solr_result_buffer) != 0) {
+        if (solr_request(solr_fetch_q.c_str(), &solr_result_buffer, analysis_result) != 0) {
             WARNING_LOG("solr_request failed.");
             return -1;
         }

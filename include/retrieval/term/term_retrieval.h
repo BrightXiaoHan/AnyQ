@@ -33,7 +33,7 @@ public:
     // 对solr返回结构进行解析
     int solr_result_parse(const char* solr_result, RetrievalResult& retrieval_result);
     // 请求solr
-    int solr_request(const char* q, std::string* buffer);
+    int solr_request(const char* q, std::string* buffer, const AnalysisResult& analysis_result);
     virtual int retrieval(const AnalysisResult& analysis_res,
         RetrievalResult& retrieval_res) override;
 
