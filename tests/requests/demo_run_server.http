@@ -1,0 +1,9 @@
+## demo/run_server.cpp的请求测试文件
+
+### 提问接口
+GET  http://127.0.0.1:8999/anyq?question=为什么登录到百度云还要填写手机号、邮箱等信息？&id=4&collection=collection1 HTTP/1.1
+
+### solr api 查询
+GET http://127.0.0.1:8900/solr/collection1/select?q=id:1&wt=json
+
+### 
