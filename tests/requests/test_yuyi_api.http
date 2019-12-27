@@ -1,0 +1,57 @@
+### 请求创建机器人
+POST http://localhost:8080/robot_manager/single/create_robot HTTP/1.1
+Content-Type: application/json
+
+{
+    "robot_code": "你好"
+}
+
+### 请求添加数据
+POST http://localhost:8080/robot_manager/single/add_items HTTP/1.1
+Content-Type: application/json
+
+{
+    "documents":[
+        {
+            "answer": "测试答案", 
+            "question": "测试问题", 
+            "id": "test_question_id_1"
+        },
+        {
+            "answer": "测试答案", 
+            "question": "测试问题", 
+            "id": "test_question_id_2"
+        }
+    ],
+    "robot_id": "test_robot_id"
+}
+
+### 请求删除数据
+POST http://localhost:8080/robot_manager/single/delete_items HTTP/1.1
+Content-Type: application/json
+
+{
+    "q_ids": ["test_question_id_2"],
+    "robot_code": "test_robot_id"
+}
+
+
+### 请求删除机器人
+POST http://localhost:8080/robot_manager/single/delete_robot HTTP/1.1
+Content-Type: application/json
+
+{
+    "robot_code": "test_robot_id"
+}
+
+### 向机器人提问
+POST http://localhost:8080/robot_manager/single/ask HTTP/1.1
+Content-Type: application/json
+
+{
+    "robot_code": "test_robot_id",
+    "service_type": "服务类型",
+    "data": {
+        "question": "测试问题"
+    }
+}

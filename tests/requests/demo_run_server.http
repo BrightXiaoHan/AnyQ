@@ -1,9 +1,23 @@
 ## demo/run_server.cpp的请求测试文件
 
 ### 提问接口
-GET  http://127.0.0.1:8999/anyq?question=为什么登录到百度云还要填写手机号、邮箱等信息？&id=4&collection=collection1 HTTP/1.1
+GET  http://127.0.0.1:8999/anyq?question=AI服务支持推广账号使用么？&robot_id=robot_id HTTP/1.1
 
 ### solr api 查询
-GET http://127.0.0.1:8900/solr/collection1/select?q=id:1&wt=json
+GET http://127.0.0.1:8900/solr/collection1/select?q=robot_id:robot_id&wt=json
 
-### 
+### solr 上传文档
+POST http://127.0.0.1:8900/solr/collection1/update HTTP/1.1
+Content-Type: application/json
+
+[
+    {"answer": "支持推广账户使用。", "question": "AI服务支持推广账号使用么？", "id": "test_unique_id_2", "robot_id": "robot_id"}
+]
+
+### solr 删除文档
+POST http://127.0.0.1:8900/solr/collection1/update HTTP/1.1
+Content-Type: application/json
+
+{
+  "delete": ["3"]
+}
