@@ -50,8 +50,5 @@ Content-Type: application/json
 
 {
     "robot_code": "test_robot_id",
-    "service_type": "服务类型",
-    "data": {
-        "question": "测试问题"
-    }
+    "question": "用户提问的问题"
 }

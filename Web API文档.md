@@ -149,45 +149,27 @@ Content-Type: application/json
 
 {
     "robot_code": "test_robot_id",
-    "service_type": "一问一答",
-    "data": {
-        "question": "测试问题"
-    }
+    "question": "用户提问的问题"
 }
 ```
 **参数说明**
 - robot_code: 机器人编号（唯一标识）
-- service_type: 服务类型，目前暂时填写`一问一答`
 - data: 包含唯一字段question，为用户提问的问题
 
 **http返回示例**
 ```http
 HTTP/1.1 200 OK
+Date: Mon, 30 Dec 2019 02:56:07 GMT
+Content-Length: 26
 Connection: close
-Content-Length: 339
-Server: TornadoServer/6.0.1
 Content-Type: text/html; charset=UTF-8
-Date: Fri, 27 Dec 2019 07:38:12 GMT
+Server: TornadoServer/6.0.1
 
 {
-  "data": {
-    "relatedQuestions": [],
-    "text": "测试答案",
-    "video_url": [],
-    "img_url": []
-  },
-  "robot_code": "test_robot_id",
-  "service_code": "d64585a6-287b-11ea-8aec-0242ac11000c",
-  "answer_code": "d64585a6-287b-11ea-8aec-0242ac11000c",
-  "answer_type": "text",
-  "service_type": "一问一答",
-  "ask_code": "d64585a6-287b-11ea-8aec-0242ac11000c"
+  "answer": "测试答案"
 }
+
 ```
 **返回参数说明**
-- answer_type: 答案类型，目前仅为text，为预留参数
-- robot_code: 机器人编号（唯一标识）
-- service_code: 当前服务的唯一标识
-- ask_code: 当前问题的唯一标识
-- answer_code: 当前答案的唯一标识
-- service_type: 服务类型，目前暂时填一问一答
+- answer: 问题答案
+

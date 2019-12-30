@@ -79,34 +79,18 @@ class AddItemsHandler(SolrToolsHandler):
 class AskHandler(RequestHandler):
     """数据示例{
         "robot_code": "test_robot_id",
-        "service_type": "一问一答",
-        "data": {
-            "question": "用户提问的问题",
-        }
+        "question": "用户提问的问题"
     }
     """
     def post(self):
         data = json.loads(self.request.body.decode("utf-8"))
-        result = anyq.ask(data["data"]["question"], data["robot_code"])
-        code = str(uuid.uuid1())
+        result = anyq.ask(data["question"], data["robot_code"])
         response_json = {
-            "robot_code": data["robot_code"],
-            "service_type": data['service_type'],
-            "service_code": code,
-            "ask_code": code,
-            "answer_code": code,
-            "answer_type": "text",
-            "data":{
-                "text": "您的问题我暂时回答不了，但是我会女里学习的哦~",
-                "relatedQuestions": [],
-                "video_url": [],
-                "img_url": []
-            }
+            "answer": "对不起，您问的问题我暂时无法回答，但是我会努力学习的哦。"
         }
         if len(result) > 0:
-            response_json["data"]["text"] = result[0]["answer"]
+            response_json["answer"] =  result[0]["answer"]
         self.write(json.dumps(response_json, ensure_ascii=False))
-
 
 
 def main():
