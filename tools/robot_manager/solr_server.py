@@ -89,7 +89,7 @@ class AskHandler(RequestHandler):
             "answer": "对不起，您问的问题我暂时无法回答，但是我会努力学习的哦。"
             "ask_code": data["question"],
             "answer_code": "99999",
-            response_json["answer_type"] = -1
+            "answer_type" = -1
         }
         if len(result) > 0:
             response_json["answer"] =  result[0]["answer"]
