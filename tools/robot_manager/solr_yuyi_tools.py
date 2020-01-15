@@ -40,7 +40,7 @@ def upload_documents(documents, robot_id, host="localhost", enginename="collecti
     """上传文档
     
     Args:
-        documents (list): 文档列表。示例 [{"answer": "支持推广账户使用。", "question": "AI服务支持推广账号使用么？", "id": "3"}]
+        documents (list): 文档列表。示例 [{"answer": "支持推广账户使用。", "question": "AI服务支持推广账号使用么？", "id": "3", "answer_id": "test_answer_id}]
         robot_id (str): 机器人的名称
         host (str, optional): solr服务地址. Defaults to "localhost".
         enginename (str, optional): engine名称. Defaults to "collection1".

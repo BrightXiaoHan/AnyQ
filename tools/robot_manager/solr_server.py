@@ -90,6 +90,9 @@ class AskHandler(RequestHandler):
         }
         if len(result) > 0:
             response_json["answer"] =  result[0]["answer"]
+            response_json["ask_code"] = result[0]["qa_id"]
+            json_info = json.loads(result[0]["json_info"])
+            response_json["answer_code"] = json_info["answer_id"]
         self.write(json.dumps(response_json, ensure_ascii=False))
 
 

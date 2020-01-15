@@ -15,12 +15,14 @@ Content-Type: application/json
         {
             "answer": "测试答案", 
             "question": "测试问题", 
-            "id": "test_question_id_1"
+            "id": "test_question_id_1",
+            "answer_id": "test_answer_id_1"
         },
         {
             "answer": "测试答案", 
             "question": "测试问题", 
-            "id": "test_question_id_2"
+            "id": "test_question_id_2",
+            "answer_id": "test_answer_id_2"
         }
     ],
     "robot_id": "test_robot_id"

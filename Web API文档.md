@@ -48,12 +48,14 @@ Content-Type: application/json
         {
             "answer": "测试答案", 
             "question": "测试问题", 
-            "id": "test_question_id_1"
+            "id": "test_question_id_1",
+            "answer_id": "answer_id"
         },
         {
             "answer": "测试答案", 
             "question": "测试问题", 
-            "id": "test_question_id_2"
+            "id": "test_question_id_2",
+            "answer_id": "answer_id"
         }
     ],
     "robot_id": "test_robot_id"
@@ -166,7 +168,9 @@ Content-Type: text/html; charset=UTF-8
 Server: TornadoServer/6.0.1
 
 {
-  "answer": "测试答案"
+  "answer": "测试答案",
+  "ask_code": "问题id",
+  "answer_code": "答案id"
 }
 
 ```
