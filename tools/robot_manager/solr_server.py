@@ -89,13 +89,15 @@ class AskHandler(RequestHandler):
             "answer": "对不起，您问的问题我暂时无法回答，但是我会努力学习的哦。",
             "ask_code": data["question"],
             "answer_code": "99999",
-            "answer_type": -1
+            "answer_type": -1,
+            "confidence": 0
         }
         if len(result) > 0:
             response_json["answer"] =  result[0]["answer"]
             response_json["ask_code"] = result[0]["qa_id"]
+            response_json["confidence"] = result[0]["confidence"]
             json_info = json.loads(result[0]["json_info"])
-            response_json["answer_code"] = json_info["answer_id"]
+            response_json["answer_code"] = json_info.get("answer_id", response_json["ask_code"])
             response_json["answer_type"] = 0  # 正常答案
         self.write(json.dumps(response_json, ensure_ascii=False))
 

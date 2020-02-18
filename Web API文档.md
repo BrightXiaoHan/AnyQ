@@ -170,8 +170,9 @@ Server: TornadoServer/6.0.1
 {
   "answer": "测试答案",
   "ask_code": "问题id",
-  "answer_code": "答案id"
-  "answer_type": 0
+  "answer_code": "答案id",
+  "answer_type": 0,
+  "confidence": 0.9756978750228882
 }
 
 ```
@@ -180,4 +181,5 @@ Server: TornadoServer/6.0.1
 - ask_code: 匹配到问题的唯一编号
 - answer_code: 匹配到答案的唯一编号
 - answer_type: 答案类型。（0表示找到答案，1表示未找到答案）
+- confidence: 答案置信度，浮点数
 
